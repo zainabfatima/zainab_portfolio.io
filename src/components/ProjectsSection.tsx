@@ -3,48 +3,66 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Github, ExternalLink, Calendar, Code, Zap } from "lucide-react";
 
+// Import project images
+import whatsappAnalyzer from "@/assets/whatsapp-analyzer.jpg";
+import personalAssistant from "@/assets/personal-assistant.jpg";
+import voiceAssistant from "@/assets/voice-assistant.jpg";
+import golfAnalyzer from "@/assets/golf-analyzer.jpg";
+import signLanguage from "@/assets/sign-language.jpg";
+import accidentDashboard from "@/assets/accident-dashboard.jpg";
+import roboNavigator from "@/assets/robo-navigator.jpg";
+import roadDetection from "@/assets/road-detection.jpg";
+import roboticGripper from "@/assets/robotic-gripper.jpg";
+import smartBilling from "@/assets/smart-billing.jpg";
+
 const githubProjects = [
   {
     name: "WhatsApp Chat Analyzer",
     description: "A Python-based tool to analyze and visualize WhatsApp chat data from exported .txt files. It helps understand conversations through statistics, activity trends, and emoji usage.",
     tech: ["Python", "Data Analysis", "Visualization"],
     lastUpdated: "3 days ago",
-    category: "Data Science"
+    category: "Data Science",
+    image: whatsappAnalyzer
   },
   {
     name: "Personal Data Assistant",
     description: "A personalized AI assistant that reads, understands, and answers questions about documents using LLMs, combining LangChain, OpenAI GPT models, and advanced NLP.",
     tech: ["Python", "LangChain", "OpenAI", "NLP"],
     lastUpdated: "4 days ago",
-    category: "AI/ML"
+    category: "AI/ML",
+    image: personalAssistant
   },
   {
     name: "Multi-lingual Voice Assistant",
     description: "AI-powered application supporting multiple languages, transcribing voice using OpenAI Whisper and processing requests with advanced language models.",
     tech: ["Python", "OpenAI Whisper", "Speech Recognition"],
     lastUpdated: "1 week ago",
-    category: "AI/ML"
+    category: "AI/ML",
+    image: voiceAssistant
   },
   {
     name: "AI Golf Swing Analyzer",
     description: "Uses Google's Mediapipe to estimate human body keypoints from golf swing videos and calculates movement angles for performance analysis.",
     tech: ["Python", "Mediapipe", "Computer Vision"],
     lastUpdated: "1 week ago",
-    category: "Computer Vision"
+    category: "Computer Vision",
+    image: golfAnalyzer
   },
   {
     name: "Language Recognizer",
     description: "Deep neural network model that recognizes three sign language gestures: 'hello', 'thanks', and 'iloveu' using advanced computer vision techniques.",
     tech: ["Python", "Deep Learning", "Computer Vision"],
     lastUpdated: "1 week ago",
-    category: "Deep Learning"
+    category: "Deep Learning",
+    image: signLanguage
   },
   {
     name: "AccidentInsight - US EDA Dashboard",
     description: "Comprehensive Exploratory Data Analysis on over 2.8 million US accident records with interactive dashboard and insights.",
     tech: ["Python", "Pandas", "Data Visualization"],
     lastUpdated: "2 weeks ago",
-    category: "Data Science"
+    category: "Data Science",
+    image: accidentDashboard
   }
 ];
 
@@ -55,7 +73,8 @@ const featuredProjects = [
     description: "A robotics project integrating a robotic arm on a mobile platform to autonomously detect, navigate, and manipulate objects based on natural language commands using 6D pose estimation.",
     tech: ["ROS", "Gazebo", "ArUco Markers", "6D Pose Estimation", "LLMs"],
     status: "In Progress",
-    type: "Research Project"
+    type: "Research Project",
+    image: roboNavigator
   },
   {
     name: "Road Object Detection and Tracking with DeepSORT and YOLOv8",
@@ -63,7 +82,8 @@ const featuredProjects = [
     description: "Enhanced road safety and traffic management system using YOLOv7 and DeepSORT for accurate object detection and tracking on the BDD100K dataset.",
     tech: ["YOLOv7", "DeepSORT", "Computer Vision", "BDD100K"],
     status: "Completed",
-    type: "Academic Project"
+    type: "Academic Project",
+    image: roadDetection
   },
   {
     name: "Optimal Robotic Arm Gripper (FYP)",
@@ -71,7 +91,8 @@ const featuredProjects = [
     description: "Final Year Design Project improving object grasping in warehouses with autonomous robotic arm using dual monocular cameras for 6D object pose estimation.",
     tech: ["Computer Vision", "Robotics", "6D Pose Estimation", "Kinematic Modeling"],
     status: "Completed",
-    type: "Final Year Project"
+    type: "Final Year Project",
+    image: roboticGripper
   },
   {
     name: "SmartScan Billing Assistant",
@@ -79,7 +100,8 @@ const featuredProjects = [
     description: "Computer vision-based automated billing system detecting products and calculating totals using camera input, implemented with YOLOv8 for 20+ products.",
     tech: ["YOLOv8", "Computer Vision", "Object Detection", "Real-time Processing"],
     status: "Completed",
-    type: "Commercial Project"
+    type: "Commercial Project",
+    image: smartBilling
   }
 ];
 
@@ -118,7 +140,14 @@ const ProjectsSection = () => {
           <h3 className="text-2xl font-bold text-foreground mb-6">Featured Projects</h3>
           <div className="grid md:grid-cols-2 gap-6">
             {featuredProjects.map((project, index) => (
-              <Card key={index} className="professional-card hover-lift">
+              <Card key={index} className="professional-card hover-lift overflow-hidden">
+                <div className="h-48 overflow-hidden">
+                  <img 
+                    src={project.image} 
+                    alt={project.name}
+                    className="w-full h-full object-cover hover-scale"
+                  />
+                </div>
                 <CardHeader>
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex-1">
@@ -175,7 +204,14 @@ const ProjectsSection = () => {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {githubProjects.map((project, index) => (
-              <Card key={index} className="professional-card hover-lift">
+              <Card key={index} className="professional-card hover-lift overflow-hidden">
+                <div className="h-40 overflow-hidden">
+                  <img 
+                    src={project.image} 
+                    alt={project.name}
+                    className="w-full h-full object-cover hover-scale"
+                  />
+                </div>
                 <CardHeader>
                   <div className="flex items-start justify-between gap-2">
                     <div className="flex-1">
